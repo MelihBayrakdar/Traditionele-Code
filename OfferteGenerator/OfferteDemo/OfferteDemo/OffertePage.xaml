@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:OfferteDemo"
+             xmlns:models="clr-namespace:OfferteDemo.Models"
+             x:Class="OfferteDemo.OffertePage"
+             Title="Offerte">
+    <ScrollView Padding="30">
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <Picker x:Name="MateriaalPicker" 
+                    x:DataType="models:MateriaalSoort" 
+                    Title="Materiaalsoort" 
+                    ItemDisplayBinding="{Binding Naam}" SelectedIndex="0" />
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="" />
+                <Label Grid.Row="0" Grid.Column="2" Text="" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Aantal" />
+                <Label Grid.Row="0" Grid.Column="3" Text="Extra afmeting" />
+                <Label Grid.Row="0" Grid.Column="4" Text="Prijs P/unit" />
+                <Label Grid.Row="0" Grid.Column="5" Text="Totaal" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Aantal m²" VerticalOptions="Center"/>
+                <Entry Grid.Row="1" Grid.Column="1" Margin="10" Text="{Binding AantalM2}" Placeholder="m²" />
+                <Label Grid.Row="1" Grid.Column="4" Text="{Binding PrijsPerM2, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="5" Text="{Binding M2Prijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Randafwerking m" VerticalOptions="Center"/>
+                <Entry Grid.Row="2" Grid.Column="1" Margin="10" Text="{Binding RandafwerkingAantalM}" Placeholder="m" />
+                <Label Grid.Row="2" Grid.Column="2" Margin="10" Text="{Binding RandafwerkingVerstekRange}" VerticalOptions="Center"/>
+                <Entry Grid.Row="2" Grid.Column="3" Margin="10" Text="{Binding RandafwerkingVerstekMM}" />
+                <Label Grid.Row="2" Grid.Column="4" Text="{Binding RandafwerkingPrijsPerM, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="2" Grid.Column="5" Text="{Binding RandafwerkingPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Spatrand" />
+                <Entry Grid.Row="3" Grid.Column="1" Margin="10" Text="{Binding SpatrandAantalM}" />
+                <Label Grid.Row="3" Grid.Column="2" Margin="10" Text="{Binding SpatrandHoogteRange}" VerticalOptions="Center"/>
+                <Entry Grid.Row="3" Grid.Column="3" Margin="10" Text="{Binding SpatrandHoogte}" />
+                <Label Grid.Row="3" Grid.Column="4" Text="{Binding SpatrandPrijsPerM, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="3" Grid.Column="5" Text="{Binding SpatrandPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Vensterbank" />
+                <Entry Grid.Row="4" Grid.Column="1" Margin="10" Text="{Binding VensterbankAantalM}" />
+                <Label Grid.Row="4" Grid.Column="2" Margin="10" Text="Breedte" />
+                <Entry Grid.Row="4" Grid.Column="3" Margin="10" Text="{Binding VensterbankBreedte}" />
+                <Label Grid.Row="4" Grid.Column="4" Text="{Binding VensterbankPrijsPerM, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="4" Grid.Column="5" Text="{Binding VensterbankPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Uitsparing spoelbak" />
+                <Label Grid.Row="5" Grid.Column="5" Text="{Binding SpoelbakPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="5" Grid.Column="4" Text="{Binding OnderbouwPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="6" Grid.Column="4" Text="{Binding InlegPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="7" Grid.Column="4" Text="{Binding RuwPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                
+                <VerticalStackLayout  RadioButtonGroup.GroupName="Spoelbak" RadioButtonGroup.SelectedValue="{Binding SpoelbakType}" Grid.Row="5" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3" Spacing="0">
+                    <!--<RadioButton  Value="0">
+                        <RadioButton.Content>
+                            <Label Text="Geen"/>
+                        </RadioButton.Content>
+                    </RadioButton>-->
+                    <RadioButton  Value="1">
+                        <RadioButton.Content>
+                            <Label Text="Onderbouw"/>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton  Value="2">
+                        <RadioButton.Content>
+                            <Label Text="Inleg"/>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton  Value="3">
+                        <RadioButton.Content>
+                            <Label Text="Ruw"/>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </VerticalStackLayout>
+
+                <Label Grid.Row="9" Grid.Column="0" Text="Kraangat : Ø 36" />
+                <CheckBox Grid.Row="9" Grid.Column="1" IsChecked="{Binding Kraangat}" />
+                <Label Grid.Row="9" Grid.Column="4" Text="{Binding KraangatPrijsPer, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="9" Grid.Column="5" Text="{Binding KraangatPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="10" Grid.Column="0" Text="Zeepdispenser : Ø 26" />
+                <CheckBox Grid.Row="10" Grid.Column="1" IsChecked="{Binding Zeepdispenser}" />
+                <Label Grid.Row="10" Grid.Column="4" Text="{Binding ZeepdispenserPrijsPer, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="10" Grid.Column="5" Text="{Binding ZeepdispenserPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="11" Grid.Column="0" Text="Boorgaten" />
+                <Entry Grid.Row="11" Grid.Column="1" Margin="10" Text="{Binding BoorgatenAantal}" />
+                <Label Grid.Row="11" Grid.Column="4" Text="{Binding BoorgatenPrijsPerStuk, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="11" Grid.Column="5" Text="{Binding BoorgatenPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="11" Grid.Column="2" Margin="10" Text="{Binding BoorgatenRange}" />
+                <Entry Grid.Row="11" Grid.Column="3" Margin="10" Text="{Binding BoorgatenMM}" />
+
+                <Label Grid.Row="12" Grid.Column="0" Text="WCD" />
+                <CheckBox Grid.Row="12" Grid.Column="1" IsChecked="{Binding WCD}" />
+                <Label Grid.Row="12" Grid.Column="4" Text="{Binding WCDPrijsPer, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="12" Grid.Column="5" Text="{Binding WCDPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="13" Grid.Column="0" Text="Achterwand m²" VerticalOptions="Center"/>
+                <Entry Grid.Row="13" Grid.Column="1" Margin="10" Text="{Binding AchterwandAantalM2}" Placeholder="m²" />
+                <Label Grid.Row="13" Grid.Column="4" Text="{Binding AchterwandPrijsPerM2, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="13" Grid.Column="5" Text="{Binding AchterwandPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="14" Grid.Column="0" Text="Randafwerking m" VerticalOptions="Center"/>
+                <Entry Grid.Row="14" Grid.Column="1" Margin="10" Text="{Binding AchterwandAfwerkingAantalM2}" Placeholder="m" />
+                <Label Grid.Row="14" Grid.Column="4" Text="{Binding AchterwandAfwerkingPrijsPerM2, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+                <Label Grid.Row="14" Grid.Column="5" Text="{Binding AchterwandAfwerkingPrijs, StringFormat='€{0:N2}'}" VerticalOptions="Center" />
+
+                <Rectangle Grid.Row="15" Grid.Column="0" HeightRequest="2" Margin="20" Grid.ColumnSpan="6" Background="White" />
+
+                <Label Grid.Row="16" Grid.Column="4" Text="Totaal"/>
+                <Label Grid.Row="16" Grid.Column="5" Text="{Binding TotaalPrijs, StringFormat='€{0:N2}'}" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

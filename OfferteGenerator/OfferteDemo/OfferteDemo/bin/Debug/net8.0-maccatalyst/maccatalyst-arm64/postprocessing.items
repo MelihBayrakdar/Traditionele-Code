@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="OfferteDemo.app/Contents/MacOS/OfferteDemo">
+      <BCSymbolMapName>OfferteDemo.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>OfferteDemo.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/melihbayrakdar/Library/CloudStorage/OneDrive-HogeschoolRotterdam/OfferteGenerator/OfferteDemo/OfferteDemo/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/mtouch-symbols.list</SymbolFile>
+      <DSymName>OfferteDemo.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/melihbayrakdar/Library/CloudStorage/OneDrive-HogeschoolRotterdam/OfferteGenerator/OfferteDemo/OfferteDemo</SourceProjectPath>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>
